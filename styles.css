@@ -1,4 +1,4 @@
-/* Global styles */
+/* GLOBAL */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,42 +7,66 @@ body {
     color: #fff;
 }
 
-/* Container for center alignment */
 .container {
     width: 80%;
     margin: 0 auto;
 }
 
-/* Header styles */
-header {
-    background-color: #006C9C;
-    padding: 20px 0;
+/* ------------------------------ */
+/* BANDEAU BLANC (TOPBAR) */
+/* ------------------------------ */
+.topbar {
+    background-color: #fff;
+    padding: 10px 0;
 }
 
-header .logo {
+.topbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar .logo {
     width: 170px;
     height: auto;
 }
 
-header nav ul {
+.topbar nav ul {
+    display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: space-around;
 }
 
-header nav ul li {
-    display: inline;
+.topbar nav ul li {
+    margin-left: 20px;
 }
 
-header nav ul li a {
-    color: #fff;
+.topbar nav ul li a {
+    color: #000;
+    font-size: 16px;
     text-decoration: none;
-    font-size: 18px;
+    font-weight: bold;
 }
 
-/* Portfolio section */
+/* ------------------------------ */
+/* HEADER BLEU + BANNIÈRE */
+/* ------------------------------ */
+header {
+    background-color: #006C9C;
+    text-align: center;
+    padding: 20px 0 0;
+}
+
+.header-banner {
+    width: 100%;
+    height: auto;
+    margin-top: 15px;
+}
+
+/* ------------------------------ */
+/* PORTFOLIO */
+/* ------------------------------ */
 .portfolio {
     background-color: #222;
     padding: 50px 0;
@@ -65,23 +89,18 @@ header nav ul li a {
     border: 1px solid #fff;
 }
 
-/* About section */
-.about {
-    background-color: #333;
-    padding: 40px 0;
+/* ------------------------------ */
+/* BANDE TURQUOISE */
+/* ------------------------------ */
+.pre-footer {
+    background-color: #41D8C6;
+    height: 200px;
+    width: 100%;
 }
 
-.about h2 {
-    font-size: 30px;
-    text-align: center;
-}
-
-.about p {
-    font-size: 18px;
-    text-align: center;
-}
-
-/* Footer styles */
+/* ------------------------------ */
+/* FOOTER */
+/* ------------------------------ */
 footer {
     background-color: #006C9C;
     padding: 20px 0;
@@ -97,7 +116,6 @@ footer nav ul {
 }
 
 footer nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
