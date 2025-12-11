@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio Romain Boullard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
-    <!-- Bandeau blanc en haut -->
+    <!-- Bandeau blanc en haut (topbar) -->
     <div class="topbar">
         <div class="container topbar-content">
-            <img src="logo.png" class="logo" alt="Logo">
-
+            <img src="logo.png" class="logo" alt="Logo Port de plaisance">
             <nav>
                 <ul>
                     <li><a href="#">Accueil</a></li>
@@ -25,34 +23,30 @@
         </div>
     </div>
 
-    <!-- Header bleu + bannière -->
+    <!-- Header bleu + emplacement pour le visuel (bannière) -->
     <header>
-        <img src="https://github.com/romainb17/portfolio/blob/main/banniere.jpg?raw=true" class="header-banner" alt="Bannière">
+        <div class="container header-inner">
+            <!-- Si tu veux que le logo reste visible dans l'en-tête, on peut dupliquer / repositionner -->
+            <img src="logo.png" class="logo header-logo" alt="Logo">
+        </div>
+        <!-- bannière visuelle large (image) -->
+        <img src="banniere.jpg" class="header-banner" alt="Bannière visuelle">
     </header>
 
     <!-- Section Portfolio -->
     <section class="portfolio">
         <div class="container">
             <h1>Portfolio Romain Boullard</h1>
-            <p>BTS SNIR Port de Plaisance de La Rochelle</p>
+            <p>BTS SIO - Port de plaisance de La Rochelle</p>
 
+            <!-- texte explicatif (issu de ton ancien code) -->
+            <p class="intro">
+                Dans ce portfolio je vous présente en premier le tableau de synthèse qui regroupe toutes les compétences acquises pendant l'année en entreprise ou au centre de formation.
+            </p>
+
+            <!-- Tableau de synthèse (image) -->
             <img src="tableau.png" alt="Tableau de synthèse" class="tableau-synthese">
         </div>
     </section>
 
-    <!-- Bande turquoise avant le footer -->
-    <div class="pre-footer"></div>
-
-    <!-- Footer -->
-    <footer>
-        <nav>
-            <ul>
-                <li><a href="#">Mentions légales</a></li>
-                <li><a href="#">Politique de confidentialité</a></li>
-            </ul>
-        </nav>
-    </footer>
-
-</body>
-</html>
-
+    <!-- About section (issu de ton ancien code) -->
