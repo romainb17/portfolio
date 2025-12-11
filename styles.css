@@ -1,23 +1,29 @@
-/* GLOBAL */
+/* ============================
+   GLOBAL
+   ============================ */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1A1A1A;
+    background-color: #1A1A1A; /* ton fond sombre */
     color: #fff;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
-/* ------------------------------ */
-/* BANDEAU BLANC (TOPBAR) */
-/* ------------------------------ */
+/* ============================
+   BANDEAU BLANC (TOPBAR)
+   ============================ */
 .topbar {
     background-color: #fff;
     padding: 10px 0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
 }
 
 .topbar-content {
@@ -29,6 +35,7 @@ body {
 .topbar .logo {
     width: 170px;
     height: auto;
+    display: block;
 }
 
 .topbar nav ul {
@@ -39,34 +46,47 @@ body {
 }
 
 .topbar nav ul li {
-    margin-left: 20px;
+    margin-left: 24px;
 }
 
 .topbar nav ul li a {
     color: #000;
-    font-size: 16px;
+    font-size: 15px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: 0.4px;
 }
 
-/* ------------------------------ */
-/* HEADER BLEU + BANNIÈRE */
-/* ------------------------------ */
+/* ============================
+   HEADER BLEU + BANNIÈRE
+   ============================ */
 header {
     background-color: #006C9C;
     text-align: center;
-    padding: 20px 0 0;
+    padding-bottom: 0;
+    position: relative;
+}
+
+.header-inner {
+    padding: 18px 0;
+}
+
+.header-logo {
+    width: 170px;
+    height: auto;
 }
 
 .header-banner {
     width: 100%;
     height: auto;
+    display: block;
     margin-top: 15px;
+    object-fit: cover;
 }
 
-/* ------------------------------ */
-/* PORTFOLIO */
-/* ------------------------------ */
+/* ============================
+   PORTFOLIO SECTION
+   ============================ */
 .portfolio {
     background-color: #222;
     padding: 50px 0;
@@ -75,39 +95,119 @@ header {
 .portfolio h1 {
     font-size: 36px;
     text-align: center;
+    margin: 0;
+    padding-top: 10px;
 }
 
 .portfolio p {
     font-size: 18px;
     text-align: center;
-    margin: 20px 0;
+    margin: 12px 0 20px;
 }
 
+.intro {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    color: #ddd;
+    line-height: 1.4;
+}
+
+/* image tableau */
 .tableau-synthese {
+    display: block;
+    max-width: 700px;
     width: 100%;
-    margin: 40px 0;
+    margin: 40px auto;
     border: 1px solid #fff;
+    background: #fff; /* si image transparente on conserve contraste */
 }
 
-/* ------------------------------ */
-/* BANDE TURQUOISE */
-/* ------------------------------ */
+/* ============================
+   ABOUT SECTION
+   ============================ */
+.about {
+    background-color: #333;
+    padding: 40px 0;
+    color: #eaeaea;
+}
+
+.about h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.about p {
+    font-size: 18px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ============================
+   BANDE TURQUOISE (PRE-FOOTER)
+   ============================ */
 .pre-footer {
     background-color: #41D8C6;
-    height: 200px;
+    height: auto;
     width: 100%;
+    padding: 40px 0;
+    color: #00343a;
 }
 
-/* ------------------------------ */
-/* FOOTER */
-/* ------------------------------ */
+.pre-footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.pre-footer .left,
+.pre-footer .right {
+    width: 48%;
+}
+
+.small-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
+}
+
+.small-text {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* liens dans la pré-footer */
+.pre-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+.pre-footer-links li {
+    margin-bottom: 8px;
+}
+
+.pre-footer-links li a {
+    color: #00343a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
 footer {
     background-color: #006C9C;
     padding: 20px 0;
     text-align: center;
+    color: #fff;
 }
 
-footer nav ul {
+.footer-nav {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -115,11 +215,29 @@ footer nav ul {
     justify-content: center;
 }
 
-footer nav ul li {
+.footer-nav li {
     margin: 0 15px;
 }
 
-footer nav ul li a {
+.footer-nav li a {
     color: #fff;
     text-decoration: none;
+    font-weight: 600;
 }
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+    .container { width: 92%; }
+    .pre-footer-inner { flex-direction: column; gap: 20px; }
+    .pre-footer .left, .pre-footer .right { width: 100%; }
+    .topbar nav ul { display: none; } /* on peut ajouter un menu mobile plus tard */
+}
+
+@media (max-width: 480px) {
+    .portfolio h1 { font-size: 26px; }
+    .header-logo, .topbar .logo { width: 140px; }
+    .tableau-synthese { max-width: 100%; }
+}
+
