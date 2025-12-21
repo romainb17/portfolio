@@ -1,95 +1,282 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Romain Boullard</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAVIGATION - LOGO À GAUCHE ET TEXTE PLUS GRAND */
+        header {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: center; /* Centre le bloc de contenu */
+            align-items: center;
+            width: 100%;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .logo img { 
+            height: 45px; 
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #444;
+            font-size: 18px; /* Taille augmentée */
+            font-weight: 500;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 380px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .hero p span {
+            color: #31d2be;
+        }
+
+        /* FLÈCHE SUR LA LIGNE */
+        .arrow-up {
+            width: 0; 
+            height: 0; 
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            border-bottom: 18px solid #31d2be;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* CONTENU */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .intro-text {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 90px;
+            line-height: 1.4;
+        }
+
+        .title-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .title-section h2 {
+            font-size: 42px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-right: 25px;
+            letter-spacing: -1px;
+        }
+
+        .dots-white {
+            flex-grow: 1;
+            border-bottom: 6px dotted white;
+            height: 18px;
+        }
+
+        /* DOCUMENT ET POINTS À GAUCHE */
+        .doc-layout {
+            display: flex;
+            gap: 30px;
+        }
+
+        .side-dots {
+            border-left: 6px dotted white;
+            width: 10px;
+            margin-top: 10px;
+        }
+
+        .document-container {
+            background-color: white;
+            flex-grow: 1;
+            padding: 8px;
+            min-height: 800px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #31d2be;
+            color: #0d4a44;
+            padding: 70px 12%;
+            display: grid;
+            grid-template-columns: 1.8fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-left h4 {
+            font-weight: 800;
+            font-size: 15px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .footer-left p {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-top: 25px;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 25px;
+        }
+
+        .footer-right a {
+            text-decoration: none;
+            color: #0d4a44;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .underline {
+            width: 45px;
+            height: 1.5px;
+            background-color: white;
+            margin-top: 3px;
+        }
+
+        .link-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+    </style>
 </head>
 <body>
 
-    <!-- Bandeau blanc en haut (topbar) -->
-    <div class="topbar">
-        <div class="container topbar-content">
-            <img src="logo.png" class="logo" alt="Logo Port de plaisance">
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://via.placeholder.com/220x50?text=PORT+DE+LA+ROCHELLE" alt="Logo">
+            </div>
             <nav>
                 <ul>
                     <li><a href="#">Accueil</a></li>
                     <li><a href="#">Profil</a></li>
                     <li><a href="#">Entreprise</a></li>
-                    <li><a href="#">Réalisations professionnelles</a></li>
+                    <li><a href="#">Réalisations professionnelles ▾</a></li>
                 </ul>
             </nav>
         </div>
-    </div>
-
-    <!-- Header bleu + emplacement pour le visuel (bannière) -->
-    <header>
-        <div class="container header-inner">
-            <!-- Si tu veux que le logo reste visible dans l'en-tête, on peut dupliquer / repositionner -->
-            <img src="logo.png" class="logo header-logo" alt="Logo">
-        </div>
-        <!-- bannière visuelle large (image) -->
-        <img src="banniere.jpg" class="header-banner" alt="Bannière visuelle">
     </header>
 
-    <!-- Section Portfolio -->
-    <section class="portfolio">
-        <div class="container">
-            <h1>Portfolio Romain Boullard</h1>
-            <p>BTS SIO - Port de plaisance de La Rochelle</p>
-
-            <!-- texte explicatif (issu de ton ancien code) -->
-            <p class="intro">
-                Dans ce portfolio je vous présente en premier le tableau de synthèse qui regroupe toutes les compétences acquises pendant l'année en entreprise ou au centre de formation.
-            </p>
-
-            <!-- Tableau de synthèse (image) -->
-            <img src="tableau.png" alt="Tableau de synthèse" class="tableau-synthese">
-        </div>
-    </section>
-
-    <!-- About section (issu de ton ancien code) -->
-    <section class="about">
-        <div class="container">
-            <h2>A PROPOS DE MOI</h2>
-            <p>
-                Passionné d'informatique et d'électromécanique, je passe un BTS SIO pour être à même d'intervenir dans des opérations informatiques complexes.
-            </p>
-        </div>
-    </section>
-
-    <!-- Bande turquoise avant le footer -->
-    <div class="pre-footer">
-        <div class="container pre-footer-inner">
-            <div class="left">
-                <p class="small-title">A PROPOS DE MOI</p>
-                <p class="small-text">Passionné d'informatique et d'électromécanique je passe un BTS SIO pour être à même d'intervenir dans des opérations informatiques complexes.</p>
-            </div>
-
-            <div class="right">
-                <p class="small-title">© PORTFOLIO ROMAIN BOULLARD</p>
-                <ul class="pre-footer-links">
-                    <li><a href="#">Mentions légales</a></li>
-                    <li><a href="#">Politique de confidentialité</a></li>
-                </ul>
-            </div>
-        </div>
+    <div class="hero">
+        <h1>Portfolio Romain Boullard</h1>
+        <p>BTS SIO SISR <span>PORT DE PLAISANCE DE LA ROCHELLE</span></p>
+        <div class="arrow-up"></div>
     </div>
 
-    <!-- Footer -->
+    <main>
+        <p class="intro-text">
+            Dans ce portfolio je vous présente en premier le tableau de synthèse qui regroupe toutes les compétences acquises pendant l'année en entreprise ou au centre de formation
+        </p>
+
+        <div class="title-section">
+            <h2>Tableau de synthèse</h2>
+            <div class="dots-white"></div>
+        </div>
+
+        <div class="doc-layout">
+            <div class="side-dots"></div>
+            <div class="document-container">
+                <div style="width:100%; height:1000px; background-color:#f5f5f5; border:1px solid #ddd; display:flex; align-items:center; justify-content:center; color:#333;">
+                    [ EMPLACEMENT DU TABLEAU PDF ]
+                </div>
+            </div>
+        </div>
+    </main>
+
     <footer>
-        <div class="container">
-            <nav>
-                <ul class="footer-nav">
-                    <li><a href="#">Mentions légales</a></li>
-                    <li><a href="#">Politique de confidentialité</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
+        <div class="footer-left">
+            <div class="link-item" style="align-items: flex-start;">
+                <h4>À propos de moi</h4>
+                <div class="underline"></div>
+            </div>
+            <p>Passionné d'informatique et d'électromécanique je passe un BTS SIO pour être à même d'intervenir dans des opérations informatiques complexes.</p>
+        </div>
+        
+        <div class="footer-right">
+            <div class="link-item">
+                <a href="#">© Portfolio Romain Boullard</a>
+                <div class="underline"></div>
+            </div>
+            <div class="link-item">
+                <a href="#">Mentions Légales</a>
+                <div class="underline"></div>
+            </div>
+            <div class="link-item">
+                <a href="#">Politique de Confidentialité</a>
+                <div class="underline"></div>
+            </div>
         </div>
     </footer>
 
 </body>
 </html>
-
