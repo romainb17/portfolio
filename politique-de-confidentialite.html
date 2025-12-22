@@ -12,19 +12,23 @@
             box-sizing: border-box;
         }
 
+        /* AJUSTEMENT GLOBAL POUR ÉVITER L'EFFET TROP ZOOMÉ */
+        html {
+            zoom: 0.85; 
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #1a1a1a;
             color: white;
             -webkit-font-smoothing: antialiased;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         /* HEADER */
         header {
             background-color: white;
-            padding: 10px 0;
+            padding: 8px 0;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -33,87 +37,88 @@
         .header-content {
             display: flex;
             align-items: center;
-            gap: 45px;
+            gap: 40px;
         }
 
-        .logo-left img { height: 45px; width: auto; display: block; }
-        .logo-right img { height: 80px; width: auto; display: block; }
+        .logo-left img { height: 40px; width: auto; display: block; }
+        .logo-right img { height: 70px; width: auto; display: block; }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 25px;
+            align-items: center;
         }
 
         nav ul li a {
             text-decoration: none;
             color: #444;
-            font-size: 19px; 
+            font-size: 17px; 
             font-weight: 700; 
         }
 
-        /* SECTION CONTENU */
+        /* SECTION POLITIQUE DE CONFIDENTIALITÉ */
         main {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
         .title-section {
             display: flex;
             align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .title-section h2 {
-            font-size: 42px;
+            font-size: 30px; /* Aligné sur index, profil et mentions légales */
             font-weight: 800;
-            text-transform: uppercase;
-            margin-right: 25px;
-            letter-spacing: -1px;
+            margin-right: 20px;
+            letter-spacing: -0.5px;
         }
 
         .dots-white {
             flex-grow: 1;
-            border-bottom: 6px dotted white;
-            height: 18px;
+            border-bottom: 5px dotted white;
+            height: 12px;
         }
 
         .content-layout {
             display: flex;
-            gap: 30px;
+            gap: 25px;
         }
 
         .side-dots {
-            border-left: 6px dotted white;
-            width: 10px;
-            margin-top: 10px;
+            border-left: 5px dotted white;
+            width: 8px;
+            margin-top: 8px;
         }
 
         .text-container {
             flex-grow: 1;
             font-size: 14px;
+            line-height: 1.7;
         }
 
         .text-container h3 {
             text-decoration: underline;
             font-size: 15px;
-            margin: 25px 0 10px 0;
-            font-weight: 700;
+            margin: 25px 0 12px 0;
         }
 
-        .text-container h3:first-child { margin-top: 0; }
+        .text-container h3:first-child {
+            margin-top: 0;
+        }
 
         .text-container p {
             margin-bottom: 15px;
-            text-align: justify;
         }
 
-        /* FOOTER CORRIGÉ */
+        /* FOOTER */
         footer {
             background-color: #31d2be;
             color: #0d4a44;
-            padding: 70px 0;
+            padding: 60px 0;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -121,7 +126,7 @@
         }
 
         .footer-container {
-            max-width: 1100px;
+            max-width: 1000px;
             width: 100%;
             display: grid;
             grid-template-columns: 1.5fr 1fr;
@@ -130,37 +135,36 @@
 
         .footer-left h4 {
             font-weight: 800;
-            font-size: 15px;
+            font-size: 14px;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .footer-left p {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            line-height: 1.6;
-            margin-top: 25px;
-            max-width: 500px;
+            margin-top: 20px;
+            max-width: 450px;
         }
 
         .footer-right {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            gap: 25px;
+            gap: 20px;
         }
 
         .footer-right a {
             text-decoration: none;
             color: #0d4a44;
             font-weight: 800;
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
         }
 
         .underline {
-            width: 45px;
-            height: 1.5px;
+            width: 40px;
+            height: 1.2px;
             background-color: white;
             margin-top: 3px;
         }
@@ -174,16 +178,17 @@
         .scroll-top {
             position: absolute;
             right: 20px;
-            bottom: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             background-color: #2b7a71;
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             color: white;
-            font-size: 12px;
+            font-size: 11px;
         }
     </style>
 </head>
@@ -197,7 +202,7 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="#">Profil</a></li>
+                    <li><a href="profil.html">Profil</a></li>
                     <li><a href="#">L'association</a></li>
                     <li><a href="#">Réalisations professionnelles ▾</a></li>
                 </ul>
@@ -217,31 +222,14 @@
         <div class="content-layout">
             <div class="side-dots"></div>
             <div class="text-container">
-                <h3>Qui suis-je ?</h3>
-                <p>Je suis Romain Boullard, technicien infrastructure et cybersécurité pour l'association ADEI 17. L'adresse de mon site est : https://romainb17.github.io/portfolio/</p>
+                <h3>Collecte des données :</h3>
+                <p>Aucune donnée personnelle n'est collectée de manière automatisée sur ce site. Les informations fournies volontairement par l'utilisateur via les liens de contact (email) sont exclusivement utilisées pour répondre à la demande de l'utilisateur.</p>
 
-                <h3>Commentaires :</h3>
-                <p>Quand vous laissez un commentaire sur notre site, les données inscrites dans le formulaire de commentaire, mais aussi votre adresse IP et l’agent utilisateur de votre navigateur sont collectés pour nous aider à la détection des commentaires indésirables.</p>
-                <p>Une chaîne anonymisée créée à partir de votre adresse e-mail (également appelée hash) peut être envoyée au service Gravatar pour vérifier si vous utilisez ce dernier. Les clauses de confidentialité du service Gravatar sont disponibles ici : https://automattic.com/privacy/. Après validation de votre commentaire, votre photo de profil sera visible publiquement à côté de votre commentaire.</p>
+                <h3>Utilisation des cookies :</h3>
+                <p>Ce site n'utilise pas de cookies de traçage ou de publicité. Seuls des cookies techniques essentiels au bon fonctionnement de la plateforme d'hébergement peuvent être présents.</p>
 
-                <h3>Médias :</h3>
-                <p>Si vous téléversez des images sur le site, nous vous conseillons d’éviter de téléverser des images contenant des données EXIF de coordonnées GPS. Les personnes visitant votre site peuvent télécharger et extraire des données de localisation depuis ces images.</p>
-
-                <h3>Cookies :</h3>
-                <p>Si vous déposez un commentaire sur notre site, il vous sera proposé d’enregistrer votre nom, adresse e-mail et site dans des cookies. C’est uniquement pour votre confort afin de ne pas avoir à saisir ces informations si vous déposez un autre commentaire plus tard. Ces cookies expirent au bout d’un an.</p>
-                <p>Si vous vous rendez sur la page de connexion, un cookie temporaire sera créé afin de déterminer si votre navigateur accepte les cookies. Il ne contient pas de données personnelles et sera supprimé automatiquement à la fermeture de votre navigateur.</p>
-
-                <h3>Contenu embarqué depuis d’autres sites :</h3>
-                <p>Les articles de ce site peuvent inclure des contenus intégrés (par exemple des vidéos, images, articles…). Le contenu intégré depuis d’autres sites se comporte de la même manière que si le visiteur se rendait sur cet autre site.</p>
-
-                <h3>Utilisation et transmission de vos données personnelles :</h3>
-                <p>Si vous demandez une réinitialisation de votre mot de passe, votre adresse IP sera incluse dans l’e-mail de réinitialisation.</p>
-
-                <h3>Durées de stockage de vos données :</h3>
-                <p>Si vous laissez un commentaire, le commentaire et ses métadonnées sont conservés indéfiniment. Cela permet de reconnaître et approuver automatiquement les commentaires suivants au lieu de les laisser dans la file de modération.</p>
-
-                <h3>Les droits que vous avez sur vos données :</h3>
-                <p>Si vous avez un compte ou si vous avez laissé des commentaires sur le site, vous pouvez demander à recevoir un fichier contenant toutes les données personnelles que nous possédons à votre sujet, incluant celles que vous nous avez fournies. Vous pouvez également demander la suppression des données personnelles vous concernant. Cela ne prend pas en compte les données stockées à des fins administratives, légales ou pour des raisons de sécurité.</p>
+                <h3>Droits des utilisateurs :</h3>
+                <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour exercer ce droit, vous pouvez contacter le créateur du site via les coordonnées indiquées dans les mentions légales.</p>
             </div>
         </div>
     </main>
@@ -258,7 +246,7 @@
             
             <div class="footer-right">
                 <div class="link-item">
-                    <a href="#">© Portfolio Romain Boullard</a>
+                    <a href="index.html">© Portfolio Romain Boullard</a>
                     <div class="underline"></div>
                 </div>
                 <div class="link-item">
