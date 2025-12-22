@@ -12,6 +12,11 @@
             box-sizing: border-box;
         }
 
+        /* AJUSTEMENT GLOBAL 67% (Zoom 0.85) */
+        html {
+            zoom: 0.85; 
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #1a1a1a;
@@ -20,51 +25,110 @@
             overflow-x: hidden;
         }
 
-        /* HEADER - REGROUPÉ ET CENTRÉ */
+        /* HEADER */
         header {
             background-color: white;
-            padding: 10px 0;
+            padding: 8px 0;
             width: 100%;
             display: flex;
             justify-content: center;
+            position: relative;
+            z-index: 1000;
         }
 
         .header-content {
             display: flex;
             align-items: center;
-            gap: 45px;
+            gap: 40px;
         }
 
-        .logo-left img { 
-            height: 45px; 
-            width: auto;
-            display: block;
-        }
+        .logo-left img { height: 40px; width: auto; display: block; }
+        .logo-right img { height: 70px; width: auto; display: block; }
 
-        .logo-right img { 
-            height: 80px; 
-            width: auto;
-            display: block;
-        }
-
+        /* NAVIGATION PRINCIPALE */
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
+        }
+
+        nav ul li {
+            position: relative;
         }
 
         nav ul li a {
             text-decoration: none;
             color: #444;
-            font-size: 19px; 
+            font-size: 17px; 
             font-weight: 700; 
             white-space: nowrap;
+            padding: 10px 0;
+            display: block;
         }
 
-        /* HERO - BANNIÈRE CORRIGÉE */
+        /* MENU DÉROULANT (NIVEAU 1) */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 280px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border-top: 2px solid #31d2be;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f9f9f9;
+            color: #31d2be;
+        }
+
+        /* SOUS-MENU LATÉRAL (NIVEAU 2) */
+        .flyout-menu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: white;
+            min-width: 300px;
+            box-shadow: 8px 8px 16px rgba(0,0,0,0.1);
+            border-left: 1px solid #f0f0f0;
+        }
+
+        /* AFFICHAGE AU SURVOL */
+        nav ul li:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li:hover > .flyout-menu {
+            display: block;
+        }
+
+        .arrow-right::after {
+            content: '›';
+            font-size: 18px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        /* HERO - BANNIÈRE */
         .hero {
-            height: 400px;
+            height: 350px;
             width: 100%;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/banniere.jpg');
@@ -73,154 +137,112 @@
             background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centrage vertical */
-            align-items: center;     /* Centrage horizontal */
+            justify-content: center;
+            align-items: center;
             text-align: center;
             position: relative;
         }
 
         .hero h1 {
-            font-size: 38px;
+            font-size: 34px;
             font-weight: 700;
             margin-bottom: 8px;
             letter-spacing: 1px;
         }
 
         .hero p {
-            font-size: 11px;
-            letter-spacing: 2.5px;
+            font-size: 10px;
+            letter-spacing: 2.2px;
             font-weight: 600;
             text-transform: uppercase;
         }
 
-        .hero p span {
-            color: #31d2be;
-        }
+        .hero p span { color: #31d2be; }
 
         .arrow-up {
-            width: 0; 
-            height: 0; 
-            border-left: 18px solid transparent;
-            border-right: 18px solid transparent;
-            border-bottom: 18px solid #31d2be;
-            position: absolute;
-            bottom: -1px;
-            left: 50%;
+            width: 0; height: 0; 
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid #31d2be;
+            position: absolute; bottom: -1px; left: 50%;
             transform: translateX(-50%);
         }
 
         /* CONTENU */
         main {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
         .intro-text {
             font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 90px;
+            font-size: 15px;
+            margin-bottom: 70px;
             line-height: 1.4;
         }
 
         .title-section {
             display: flex;
             align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .title-section h2 {
-            font-size: 42px;
+            font-size: 30px;
             font-weight: 800;
-            text-transform: uppercase;
-            margin-right: 25px;
-            letter-spacing: -1px;
+            margin-right: 20px;
+            letter-spacing: -0.5px;
         }
 
         .dots-white {
             flex-grow: 1;
-            border-bottom: 6px dotted white;
-            height: 18px;
+            border-bottom: 5px dotted white;
+            height: 12px;
         }
 
         .doc-layout {
             display: flex;
-            gap: 30px;
+            gap: 25px;
         }
 
         .side-dots {
-            border-left: 6px dotted white;
-            width: 10px;
-            margin-top: 10px;
+            border-left: 5px dotted white;
+            width: 8px;
+            margin-top: 8px;
         }
 
         .document-container {
             background-color: white;
             flex-grow: 1;
             padding: 8px;
-            min-height: 800px;
+            min-height: 700px;
         }
 
         /* FOOTER */
         footer {
             background-color: #31d2be;
             color: #0d4a44;
-            padding: 70px 0;
+            padding: 60px 0;
             width: 100%;
             display: flex;
             justify-content: center;
         }
 
         .footer-container {
-            max-width: 1100px;
+            max-width: 1000px;
             width: 100%;
             display: grid;
             grid-template-columns: 1.5fr 1fr;
             padding: 0 20px;
         }
 
-        .footer-left h4 {
-            font-weight: 800;
-            font-size: 15px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .footer-left p {
-            font-size: 14px;
-            font-weight: 500;
-            line-height: 1.6;
-            margin-top: 25px;
-            max-width: 500px;
-        }
-
-        .footer-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 25px;
-        }
-
-        .footer-right a {
-            text-decoration: none;
-            color: #0d4a44;
-            font-weight: 800;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-
-        .underline {
-            width: 45px;
-            height: 1.5px;
-            background-color: white;
-            margin-top: 3px;
-        }
-
-        .link-item {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
+        .footer-left h4 { font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 6px; }
+        .footer-left p { font-size: 13px; font-weight: 500; margin-top: 20px; max-width: 450px; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
+        .footer-right a { text-decoration: none; color: #0d4a44; font-weight: 800; font-size: 13px; text-transform: uppercase; }
+        .underline { width: 40px; height: 1.2px; background-color: white; margin-top: 3px; }
+        .link-item { display: flex; flex-direction: column; align-items: flex-end; }
     </style>
 </head>
 <body>
@@ -233,10 +255,30 @@
             
             <nav>
                 <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="#">L'association</a></li>
-                    <li><a href="#">Réalisations professionnelles ▾</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="association.html">L'association</a></li>
+                    <li>
+                        <a href="#">Réalisations professionnelles et SAÉ ▾</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#" class="arrow-right">Réalisations effectuées à l'ADEI 17</a>
+                                <ul class="flyout-menu">
+                                    <li><a href="securisationreseaux.html">Sécurisation des réseaux</a></li>
+                                    <li><a href="securisationinfra.html">Sécurisation de l'infrastructure</a></li>
+                                    <li><a href="administrationreseaux.html">Administration des réseaux</a></li>
+                                    <li><a href="assistanceutilisateurs.html">Assistance aux utilisateurs</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="arrow-right">SAÉ réalisées à l'IUT</a>
+                                <ul class="flyout-menu">
+                                    <li><a href="sae1.html">SAÉ 5.01 Cluster Proxmox</a></li>
+                                    <li><a href="sa2.html">SAÉ 5.02 Piloter un projet informatique</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 
@@ -284,7 +326,7 @@
             
             <div class="footer-right">
                 <div class="link-item">
-                    <a href="#">© Portfolio Romain Boullard</a>
+                    <a href="index.html">© Portfolio Romain Boullard</a>
                     <div class="underline"></div>
                 </div>
                 <div class="link-item">
