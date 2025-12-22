@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'association - Romain Boullard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* AJUSTEMENT GLOBAL 67% (Zoom 0.85) */
+        html {
+            zoom: 0.85; 
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background-color: white;
+            padding: 8px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo-left img { height: 40px; width: auto; display: block; }
+        .logo-right img { height: 70px; width: auto; display: block; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #444;
+            font-size: 17px;
+            font-weight: 700; 
+        }
+
+        /* HERO - BANNIÈRE */
+        .hero {
+            height: 350px;
+            width: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/banniereADEI.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 14px; /* AGRANDI (était à 10px) */
+            letter-spacing: 2.2px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .hero p span { color: #31d2be; }
+
+        .arrow-up {
+            width: 0; 
+            height: 0; 
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid #31d2be;
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* STRUCTURE DES SECTIONS */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .title-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .title-section h2 {
+            font-size: 30px;
+            font-weight: 800;
+            margin-right: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .dots-white {
+            flex-grow: 1;
+            border-bottom: 5px dotted white;
+            height: 12px;
+        }
+
+        .section-layout {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 70px;
+        }
+
+        .side-dots {
+            border-left: 5px dotted white;
+            width: 8px;
+            margin-top: 8px;
+        }
+
+        .content-area {
+            flex-grow: 1;
+        }
+
+        /* PRÉSENTATION */
+        .presentation-grid {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .text-box { flex: 1.2; font-size: 15px; }
+        .text-box p { margin-bottom: 15px; text-align: justify; }
+
+        .video-box { 
+            flex: 1; 
+            background: #000; 
+            border-radius: 4px; 
+            overflow: hidden; 
+            line-height: 0;
+        }
+
+        /* ÉQUIPE */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .member-card {
+            background-color: #262626;
+            padding: 25px;
+            border-radius: 4px;
+            border-bottom: 3px solid #31d2be;
+        }
+
+        .member-card h3 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: none; /* Pour que "Moi" s'affiche correctement */
+            margin-bottom: 5px;
+        }
+
+        .member-card p {
+            font-size: 12px;
+            color: #31d2be;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .member-card.highlight {
+            background-color: #333;
+        }
+
+        .member-card.highlight h3 { color: #ffffff; }
+
+        /* MISSIONS */
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .mission-item {
+            background-color: #262626;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mission-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .img-top {
+            background-position: top !important;
+        }
+
+        .mission-label {
+            padding: 15px;
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 13px;
+            background: #111;
+            border-top: 2px solid #31d2be;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #31d2be;
+            color: #0d4a44;
+            padding: 60px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            padding: 0 20px;
+        }
+
+        .footer-left h4 { font-weight: 800; font-size: 14px; text-transform: uppercase; margin-bottom: 6px; }
+        .footer-left p { font-size: 13px; font-weight: 500; margin-top: 20px; max-width: 450px; }
+        .footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
+        .footer-right a { text-decoration: none; color: #0d4a44; font-weight: 800; font-size: 13px; text-transform: uppercase; }
+        .underline { width: 40px; height: 1.2px; background-color: white; margin-top: 3px; }
+        .link-item { display: flex; flex-direction: column; align-items: flex-end; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-left">
+                <img src="https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/logo-adei.jpg" alt="Logo ADEI">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="profil.html">Profil</a></li>
+                    <li><a href="association.html">L'association</a></li>
+                    <li><a href="#">Réalisations professionnelles ▾</a></li>
+                </ul>
+            </nav>
+            <div class="logo-right">
+                <img src="https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/logo-iut.png" alt="Logo IUT">
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>L'association</h1>
+        <p>PRÉSENTATION DE <span>L'ADEI</span></p>
+        <div class="arrow-up"></div>
+    </div>
+
+    <main>
+        <div class="title-section">
+            <h2>Présentation</h2>
+            <div class="dots-white"></div>
+        </div>
+        <div class="section-layout">
+            <div class="side-dots"></div>
+            <div class="content-area">
+                <div class="presentation-grid">
+                    <div class="text-box">
+                        <p>L’<strong>ADEI</strong> est une association engagée dans l'accompagnement des personnes en situation de handicap et de vulnérabilité sociale en Charente-Maritime.</p>
+                        <p>Elle œuvre pour l'insertion, l'éducation et le développement de l'autonomie à travers de nombreux établissements spécialisés. En tant que technicien, mon rôle est de garantir un environnement numérique stable et sécurisé.</p>
+                    </div>
+                    <div class="video-box">
+                        <iframe src="https://player.vimeo.com/video/1073854582?h=f1f2536089" width="100%" height="240" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="title-section">
+            <h2>L'équipe du service informatique</h2>
+            <div class="dots-white"></div>
+        </div>
+        <div class="section-layout">
+            <div class="side-dots"></div>
+            <div class="content-area">
+                <div class="team-grid">
+                    <div class="member-card">
+                        <h3>Direction</h3>
+                        <p>Directrice des systèmes d'information</p>
+                    </div>
+                    <div class="member-card">
+                        <h3>Pôle Développement</h3>
+                        <p>2 Développeurs</p>
+                    </div>
+                    <div class="member-card">
+                        <h3>Pôle Infrastructure</h3>
+                        <p>2 Techniciens infrastructure</p>
+                    </div>
+                    <div class="member-card highlight">
+                        <h3>Moi</h3>
+                        <p>Technicien infrastructure et cybersécurité</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="title-section">
+            <h2>Mes principales missions</h2>
+            <div class="dots-white"></div>
+        </div>
+        <div class="section-layout">
+            <div class="side-dots"></div>
+            <div class="content-area">
+                <div class="missions-grid">
+                    <div class="mission-item">
+                        <div class="mission-img" style="background-image: url('https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/ADRB.jpg');"></div>
+                        <div class="mission-label">Administration des réseaux</div>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-img" style="background-image: url('https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/wazuh-standard-featured-picture.png');"></div>
+                        <div class="mission-label">Sécurisation de l'infrastructure</div>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-img img-top" style="background-image: url('https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/securisationreseaux.jpg');"></div>
+                        <div class="mission-label">Sécurisation des réseaux</div>
+                    </div>
+                    <div class="mission-item">
+                        <div class="mission-img" style="background-image: url('https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/bureau.jpg');"></div>
+                        <div class="mission-label">Assistance aux utilisateurs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="link-item" style="align-items: flex-start;">
+                    <h4>À propos de moi</h4>
+                    <div class="underline"></div>
+                </div>
+                <p>Passionné par les systèmes, les réseaux et la cybersécurité informatique, je suis actuellement en BUT 3 Réseaux et Télécommunications, parcours cybersécurité, à l’IUT de La Rochelle.</p>
+            </div>
+            <div class="footer-right">
+                <div class="link-item">
+                    <a href="index.html">© Portfolio Romain Boullard</a>
+                    <div class="underline"></div>
+                </div>
+                <div class="link-item">
+                    <a href="mentions-legales.html">Mentions Légales</a>
+                    <div class="underline"></div>
+                </div>
+                <div class="link-item">
+                    <a href="politique-de-confidentialite.html">Politique de Confidentialité</a>
+                    <div class="underline"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
