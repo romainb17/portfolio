@@ -23,7 +23,7 @@
         /* HEADER - REGROUPÉ ET CENTRÉ */
         header {
             background-color: white;
-            padding: 10px 0; /* Réduit un peu pour compenser la taille du logo IUT */
+            padding: 10px 0;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -32,7 +32,7 @@
         .header-content {
             display: flex;
             align-items: center;
-            gap: 45px; /* Espace fixe entre les logos et le menu */
+            gap: 45px;
         }
 
         .logo-left img { 
@@ -42,7 +42,7 @@
         }
 
         .logo-right img { 
-            height: 80px; /* Logo IUT encore plus grand */
+            height: 80px; 
             width: auto;
             display: block;
         }
@@ -62,19 +62,19 @@
             white-space: nowrap;
         }
 
-        /* HERO - BANNIÈRE */
+        /* HERO - BANNIÈRE CORRIGÉE */
         .hero {
             height: 400px;
             width: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/banniere.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Centrage vertical */
+            align-items: center;     /* Centrage horizontal */
             text-align: center;
             position: relative;
         }
@@ -247,10 +247,8 @@
     </header>
 
     <div class="hero">
-        <div class="hero-text-container">
-            <h1>Portfolio Romain Boullard</h1>
-            <p>BUT 3 Réseaux et Télécommunications parcours Cybersécurité <span>ADEI 17</span></p>
-        </div>
+        <h1>Portfolio Romain Boullard</h1>
+        <p>BUT 3 Réseaux et Télécommunications parcours Cybersécurité <span>ADEI 17</span></p>
         <div class="arrow-up"></div>
     </div>
 
