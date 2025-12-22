@@ -33,6 +33,8 @@
             width: 100%;
             display: flex;
             justify-content: center;
+            position: relative;
+            z-index: 1000;
         }
 
         .header-content {
@@ -44,10 +46,16 @@
         .logo-left img { height: 40px; width: auto; display: block; }
         .logo-right img { height: 70px; width: auto; display: block; }
 
+        /* NAVIGATION PRINCIPALE */
         nav ul {
             list-style: none;
             display: flex;
             gap: 25px;
+            align-items: center;
+        }
+
+        nav ul li {
+            position: relative;
         }
 
         nav ul li a {
@@ -55,6 +63,68 @@
             color: #444;
             font-size: 17px;
             font-weight: 700; 
+            white-space: nowrap;
+            padding: 10px 0;
+            display: block;
+        }
+
+        /* MENU DÉROULANT (NIVEAU 1) */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 280px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            border-top: 2px solid #31d2be;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f9f9f9;
+            color: #31d2be;
+        }
+
+        /* SOUS-MENU LATÉRAL (NIVEAU 2) */
+        .flyout-menu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: white;
+            min-width: 300px;
+            box-shadow: 8px 8px 16px rgba(0,0,0,0.1);
+            border-left: 1px solid #f0f0f0;
+        }
+
+        /* AFFICHAGE AU SURVOL */
+        nav ul li:hover > .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li:hover > .flyout-menu {
+            display: block;
+        }
+
+        .arrow-right::after {
+            content: '›';
+            font-size: 18px;
+            margin-left: 10px;
+            font-weight: bold;
         }
 
         /* HERO - BANNIÈRE */
@@ -75,17 +145,19 @@
         }
 
         .hero h1 {
-            font-size: 34px; /* Taille de référence */
+            font-size: 34px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 0px; /* Réduit pour remonter le sous-titre */
+            line-height: 1;    /* Réduit l'espace vertical du bloc titre */
             letter-spacing: 1px;
         }
 
         .hero p {
-            font-size: 14px;
+            font-size: 10px;
             letter-spacing: 2.2px;
             font-weight: 600;
             text-transform: uppercase;
+            margin-top: 8px; /* Contrôle précis de l'écart avec Profil */
         }
 
         .hero p span {
@@ -125,9 +197,8 @@
         }
 
         .title-section h2 {
-            font-size: 30px; /* TAILLE LÉGÈREMENT INFÉRIEURE À PROFIL (34px) */
+            font-size: 30px;
             font-weight: 800;
-            /* text-transform: uppercase;  SUPPRIMÉ POUR PLUS DE MINUSCULES */
             margin-right: 20px;
             letter-spacing: -0.5px;
         }
@@ -240,8 +311,28 @@
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="profil.html">Profil</a></li>
-                    <li><a href="#">L'association</a></li>
-                    <li><a href="#">Réalisations professionnelles ▾</a></li>
+                    <li><a href="association.html">L'association</a></li>
+                    <li>
+                        <a href="#">Réalisations professionnelles et SAÉ ▾</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#" class="arrow-right">Réalisations effectuées à l'ADEI 17</a>
+                                <ul class="flyout-menu">
+                                    <li><a href="securisationreseaux.html">Sécurisation des réseaux</a></li>
+                                    <li><a href="securisationinfra.html">Sécurisation de l'infrastructure</a></li>
+                                    <li><a href="administrationreseaux.html">Administration des réseaux</a></li>
+                                    <li><a href="assistanceutilisateurs.html">Assistance aux utilisateurs</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="arrow-right">SAÉ réalisées à l'IUT</a>
+                                <ul class="flyout-menu">
+                                    <li><a href="sae1.html">SAÉ 5.01 Cluster Proxmox</a></li>
+                                    <li><a href="sa2.html">5.02 Piloter un projet informatique</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="logo-right">
@@ -258,7 +349,7 @@
 
     <main>
         <p class="intro-text">
-            Titulaire d’un Baccalauréat STG obtenu en 2008, j'ai d'abord exercé dans le domaine de l'électronique, une autre de mes passions. Désirant finalement m’orienter vers ma passion première, l’informatique, j'ai obtenu un BTS SIO SISR en 2023. Je prépare actuellement un BUT 3 Réseaux et Télécommunications parcours Cybersécurité à l'IUT de La Rochelle.
+            Titulaire d’un Baccalauréat STG depuis 2008, bifurquant vers une autre de mes passions qui sont l’électricité dans son ensemble ainsi que la mécanique. Désirant finalement m’orienter vers ma passion première qui est l’informatique je prépare actuellement un BUT 3 Réseaux et Télécommunications parcours Cybersécurité à l'IUT de La Rochelle.
         </p>
 
         <div class="title-section">
@@ -274,7 +365,7 @@
                     <div class="timeline-text">
                         <h3>ADEI 17</h3>
                         <span class="date">2025 – En cours</span>
-                        <p>Technicien infrastructure et cybersécurité</p>
+                        <p>Technicien infrastructure et cybersécurité.</p>
                     </div>
                 </div>
 
@@ -283,7 +374,7 @@
                     <div class="timeline-text">
                         <h3>Port de plaisance de La Rochelle</h3>
                         <span class="date">2021 – 2025</span>
-                        <p>Technicien informatique</p>
+                        <p>Technicien informatique.</p>
                     </div>
                 </div>
 
@@ -291,8 +382,8 @@
                     <div class="timeline-logo"><img src="https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/otis.png" alt="Otis"></div>
                     <div class="timeline-text">
                         <h3>Otis</h3>
-                        <span class="date">2020 – 2021</span>
-                        <p>Technicien aux services réparation, modernisation et maintenance</p>
+                        <span class="date">Janvier 2020 – Janvier 2021</span>
+                        <p>Apprenti aux services réparation / modernisation / maintenance d'ascenseurs.</p>
                     </div>
                 </div>
 
@@ -300,15 +391,15 @@
                     <div class="timeline-logo"><img src="https://raw.githubusercontent.com/romainb17/portfolio/refs/heads/main/safran.png" alt="Safran"></div>
                     <div class="timeline-text">
                         <h3>Safran</h3>
-                        <span class="date">2017 – 2019</span>
-                        <p>Réparateur SAV de matériel aéronautique</p>
+                        <span class="date">Mars 2017 – Septembre 2019</span>
+                        <p>Réparateur SAV de matériel électrique aéronautique à Niort.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="title-section">
-            <h2>Ma formation</h2>
+            <h2>Mon parcours scolaire</h2>
             <div class="dots-white"></div>
         </div>
 
@@ -320,7 +411,7 @@
                     <div class="timeline-text">
                         <h3>IUT de La Rochelle</h3>
                         <span class="date">2025 – En cours</span>
-                        <p>BUT 3 Réseaux et Télécommunications parcours Cybersécurité</p>
+                        <p>BUT 3 Réseaux et Télécommunications parcours Cybersécurité.</p>
                     </div>
                 </div>
 
@@ -329,7 +420,7 @@
                     <div class="timeline-text">
                         <h3>CIPECMA</h3>
                         <span class="date">2021 – 2024</span>
-                        <p>BTS SIO Option SISR</p>
+                        <p>BTS SIO Option SISR.</p>
                     </div>
                 </div>
 
@@ -338,7 +429,7 @@
                     <div class="timeline-text">
                         <h3>Lycée Simone Weil</h3>
                         <span class="date">2008</span>
-                        <p>Obtention du Baccalauréat STG option mercatique</p>
+                        <p>Obtention du Baccalauréat STG option mercatique à Paris.</p>
                     </div>
                 </div>
             </div>
